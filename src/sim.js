@@ -89,6 +89,11 @@ Simulation.prototype.removeShip = function() {
 	}
 	if (idx != -1) {
 		this.ships.splice(idx,1);
+	} else {
+		if (Math.random() < 0.5) {
+			// oldest ship retires
+			this.ships.shift();
+		}
 	}
 }
 
