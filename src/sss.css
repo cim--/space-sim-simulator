@@ -1,0 +1,58 @@
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: thin black solid;
+	padding: 0.2em;
+	vertical-align: top;
+}
+
+th {
+	background: #eee;
+}
+
+label {
+	display: block;
+}
+
+button {
+	width: 20em;
+	height: 5em;
+	margin-top: 0.5em;
+}
+
+#button_go {
+	background: #9e9;
+}
+#button_stop {
+	background: #e99;
+}
+#button_step {
+	background: #99e;
+}
+#button_reset {
+	background: #f00;
+	color: #fff;
+}
+
+.positions td,
+.positions th {
+	width: 9%;
+	height: 4em;
+}
+
+#summary table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.trader {
+	color: #090;
+}
+.pirate {
+	color: #900;
+}
+.hunter {
+	color: #009;
+}

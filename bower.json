@@ -1,0 +1,22 @@
+{
+  "name": "sss",
+  "authors": [
+    "cim <cim@oolite.org>"
+  ],
+  "description": "Space-sim simulator",
+  "main": "",
+  "moduleType": [],
+  "license": "GPL3+",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}
