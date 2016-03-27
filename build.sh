@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+rm -rf build/
+mkdir -p build/
+
 FILES="index.html sss.css"
 
 for I in $FILES ; do
