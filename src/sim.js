@@ -68,9 +68,12 @@ Simulation.prototype.addShip = function(type, cpref) {
 					}
 				}
 			}
+			if (max == 0) {
+				return;
+			}
 		}
 	}
-		this.ships.push(new Ship(type, cpref));
+	this.ships.push(new Ship(type, cpref));
 }
 
 Simulation.prototype.removeShip = function() {
@@ -421,7 +424,11 @@ Simulation.prototype.makeReport = function() {
 			report[t].max = p;
 		}
 		report[t].avg = report[t].t / report[t].count;
-		rephtml['#location_'+ship.location] += "<span class='"+ship.type+"'>"+ship.type.substr(0,1)+"</span>&#8203;";
+		var sym = ship.type.substr(0,1);
+		if (!ship.isDamaged()) {
+			sym = sym.toUpperCase();
+		}
+		rephtml['#location_'+ship.location] += "<span class='"+ship.type+" skill"+ship.skill+"'>"+sym+"</span>&#8203;";
 
 		if (t == SHIP_TRADER) {
 			t += "_"+ship.cargopref;
@@ -441,6 +448,10 @@ Simulation.prototype.makeReport = function() {
 	var xs = Object.keys(report);
 	var ys = ["count", "min", "avg", "max"];
 	xs.forEach(function(x) {
+		if (report[x].count == 0) {
+			report[x].min = 0;
+			report[x].max = 0;
+		}
 		ys.forEach(function(y) {
 			$('#result_'+x+'_'+y).html(report[x][y].toFixed(0));
 		});

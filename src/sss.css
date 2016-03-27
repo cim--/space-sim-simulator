@@ -56,3 +56,22 @@ button {
 .hunter {
 	color: #009;
 }
+
+.skill1, .skill2 {
+	font-size: 0.7em;
+}
+.skill3, .skill4 {
+	font-size: 0.85em;
+}
+.skill5, .skill6 {
+	font-size: 1.0em;
+}
+.skill7, .skill8 {
+	font-size: 1.2em;
+}
+.skill9, .skill10 {
+	font-size: 1.4em;
+}
+.skill11, .skill12 {
+	font-size: 1.6em;
+}

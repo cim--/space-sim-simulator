@@ -20,7 +20,7 @@ function Ship(st, cargopref) {
 	this.hull = OPTIONS.hull(this.type);
 	this.shields = OPTIONS.shields(this.type);
 	this.profit = 0;
-	this.skill = 3;
+	this.skill = 1;
 	this.fine = 0;
 	this.bounty = 0;
 	this.evaded = false;
@@ -36,8 +36,12 @@ Ship.prototype.loadCargo = function() {
 
 Ship.prototype.unloadCargo = function() {
 	var self = this;
+	var factor = 1;
+	if (this.type == SHIP_PIRATE) {
+		factor = OPTIONS.opt("piracy_fence")/100;
+	}
 	this.cargo.forEach(function(ctype) {
-		self.profit += OPTIONS.tradePrice(ctype, "sell");
+		self.profit += OPTIONS.tradePrice(ctype, "sell") * factor;
 	})
 	this.cargo = [];
 }
@@ -48,6 +52,9 @@ Ship.prototype.repair = function() {
 	this.profit -= damage * cost;
 	this.hull = OPTIONS.hull(this.type);
 	this.profit -= OPTIONS.running(this.type);
+	if (Math.random() < 1/(this.skill*this.skill*this.skill)) {
+		this.skill++;
+	}
 }
 
 Ship.prototype.die = function() {
