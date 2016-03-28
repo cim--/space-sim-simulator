@@ -1,5 +1,40 @@
+body {
+	background: #000;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: right;
+	margin: 0.3em 0;
+}
+
+h2 {
+	margin: 0;
+}
+
+#panels {
+	background: #fff;
+	color: #000;
+	margin: 0.5em 1em;
+	padding: 0;
+}
+
+#controls {
+	margin: 0 1em;
+	padding: 0;
+}
+		
+
 table {
 	border-collapse: collapse;
+	margin-top: 0.5em;
+}
+
+caption {
+	font-weight: bold;
+	font-size: 1.3em;
 }
 
 th, td {
@@ -17,7 +52,7 @@ label {
 }
 
 button {
-	width: 20em;
+	width: 15em;
 	height: 5em;
 	margin-top: 0.5em;
 }
@@ -74,4 +109,44 @@ button {
 }
 .skill11, .skill12 {
 	font-size: 1.6em;
+}
+
+/* Tabs */
+
+.panel {
+	display: none;
+	padding: 0.25em;
+}
+#summary {
+	display: block;
+}
+#panelcontroller {
+	margin: 0;
+	padding: 0 0.5em;
+	border: thin #999 solid;
+	border-bottom: thick #ccc solid;
+	width: auto;
+}
+
+#panelcontroller li {
+	list-style-type: none;
+	margin: 0.2em 0 0;
+	padding: 0.5em;
+	border: thin #999 solid;
+	background: #999;
+	color: #000;
+	display: inline-block;
+}
+
+#panelcontroller li.selected {
+	color: #040;
+	background: #aaa;
+}
+
+.footer {
+	text-align: right;
+	padding: 0.5em;
+	margin: 2.5em 0 0;
+	background: #ccc;
+	color: #000;
 }
