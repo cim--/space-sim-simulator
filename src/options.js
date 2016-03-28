@@ -53,6 +53,66 @@ Options.prototype.opt = function(opt) {
 	return $('[name='+opt+']').val();
 }
 
+/* Import/export */
+
+var OPTION_SETTINGS = [
+	"trader_speed","trader_hull","trader_shields","trader_weapons","trader_turn","trader_cargo","trader_cost","trader_running",
+	"pirate_speed","pirate_hull","pirate_shields","pirate_weapons","pirate_turn","pirate_cargo","pirate_cost","pirate_running",
+	"hunter_speed","hunter_hull","hunter_shields","hunter_weapons","hunter_turn","hunter_cargo","hunter_cost","hunter_running",
+	"food_buy","food_sell",
+	"rocks_buy","rocks_sell",
+	"tech_buy","tech_sell",
+	"metal_buy","metal_sell",
+	"inter_fine","inter_bounty",
+	"assault_fine","assault_bounty",
+	"theft_fine","theft_bounty",
+	"murder_fine","murder_bounty",
+	"piracy_fence",
+	"death_cost","death_per","damage_per"
+];
+
+var OPTION_FLAGS = [
+	"piracy_dump","piracy_hack","piracy_break","piracy_death",
+	"death_fine","death_bounty","death_cargo"
+];
+
+Options.prototype.import = function() {
+	var opts = JSON.parse($('#settings_box').val());
+	OPTION_SETTINGS.forEach(function(setting) {
+		$('[name='+setting+']').val(opts[setting]);
+	});
+	OPTION_FLAGS.forEach(function(flag) {
+		if (opts[flag]) {
+			$('[name='+flag+']').prop('checked', true);
+		} else {
+			$('[name='+flag+']').prop('checked', false);
+		}
+	});
+}
+
+Options.prototype.export = function() {
+	var opts = {};
+	OPTION_SETTINGS.forEach(function(setting) {
+		opts[setting] = $('[name='+setting+']').val();
+	});
+	OPTION_FLAGS.forEach(function(flag) {
+		if ($('[name='+flag+']').is(':checked')) {
+			opts[flag] = 1;
+		}
+	});
+	
+	$('#settings_box').val(JSON.stringify(opts));
+}
+
 
 
 var OPTIONS = new Options();
+
+$(document).ready(function() {
+	$('#button_import').click(OPTIONS.import);
+	var eoc = function(name) {
+		$('[name='+name+']').change(OPTIONS.export);
+	}
+	OPTION_SETTINGS.forEach(eoc);
+	OPTION_FLAGS.forEach(eoc);
+});

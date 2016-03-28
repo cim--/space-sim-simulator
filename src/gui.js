@@ -17,6 +17,10 @@ $(document).ready(function() {
 		hideall();
 		showone("parameters");
 	});
+	$('#ctrl_import').click(function() {
+		hideall();
+		showone("import");
+	});
 	
 
 });

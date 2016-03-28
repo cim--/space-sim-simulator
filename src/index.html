@@ -16,6 +16,7 @@
 	  <ul id="panelcontroller">
 		<li id="ctrl_summary" class="selected">Simulation Status</li>
 		<li id="ctrl_parameters">Simulation Parameters</li>
+		<li id="ctrl_import">Save/load</li>
 	  </ul>
 		
 	  <div id="summary" class="panel">
@@ -287,6 +288,13 @@
 			
 		  </tr>
 		</table>
+	  </div>
+
+	  <div class='panel' id='import'>
+		<h2>Import / Export Settings</h2>
+		<p>Press 'Import' to set the current simulation parameters from the text box, or copy from the text box to export the current settings.</p>
+		<textarea name='settings_box' id='settings_box' rows='20' cols='100'></textarea>
+		<div><button id='button_import'>Import</button></div>
 	  </div>
 	</div>
 

@@ -492,5 +492,5 @@ $(document).ready(function() {
 		SIMULATION.step();
 	});
 	SIMULATION.step();
-
+	OPTIONS.export();
 });
